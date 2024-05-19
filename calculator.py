@@ -64,6 +64,11 @@ st.caption("""
 """)
 st.markdown(f'<div class="pb40"></div>', unsafe_allow_html=True)
 
+# Taking inputs
+name = st.text_input('Name')
+company = st.text_input('Company')
+
+st.markdown(f'<div class="pb40"></div>', unsafe_allow_html=True)
 # User inputs using sliders
 annual_revenue = st.slider('Select your annual revenue (USD):', min_value=10000000, max_value=1000000000, step=10000000)
 
@@ -172,8 +177,13 @@ if st.button('Calculate Pricing'):
     st.markdown(f'<div class="pt40 pb40">Thank you for your interest in Contract Manager. Based on the inputs you\'ve provided, a ballpark estimate for your organization is:</div>', unsafe_allow_html=True)
 
     # Taking inputs
-    cmcc_user = st.text_input('Full Name')
-    cmcc_company = st.text_input('Company')
+    #st.text_input('Name')
+    #st.text_input('Company')
+    #text_input = st.text_input(
+    #    "Enter some text 👇"
+    #)
+    st.markdown(f'<div class="pricing-output results-title"><span class="dollar">{name}</span></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="pricing-output results-title"><span class="dollar">{company}</span></div>', unsafe_allow_html=True)
     st.markdown(f'<div class="pb20"></div>', unsafe_allow_html=True)
     st.markdown(f'<div class="pricing-output results-title">Foundation Tier Annual Pricing</div>', unsafe_allow_html=True)   
     st.markdown(f'<div class="pricing-output">Base License: <span class="dollar">${foundation_base:,.2f}</span></div>', unsafe_allow_html=True)
@@ -194,5 +204,7 @@ if st.button('Calculate Pricing'):
     st.markdown(f'<div class="pricing-output results-total pl10">Total: <span class="dollar-total">${pinnacle_total:,.2f}</span></div>', unsafe_allow_html=True)
 
     st.balloons()
+
+
 
 # Run this with `streamlit run this_script.py`
